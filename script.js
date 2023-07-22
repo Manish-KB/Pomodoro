@@ -28,7 +28,12 @@ startButton.addEventListener("click", function () {
 
     const blockedWebsitesText = document.getElementById("blockedWebsites").value;
     const blockedWebsites = blockedWebsitesText.split(/\n/) ; 
-    chrome.runtime.sendMessage({ blockedWebsites });
-    
+    chrome.runtime.sendMessage({action: "startBlocking" ,blockedWebsites: blockedWebsites });
+   
 }
 )
+stopButton.addEventListener("click", function () {
+    chrome.runtime.reload()
+    console.log("Stop");
+    chrome.runtime.sendMessage({ action: "stopBlocking" });
+});
