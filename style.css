@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(255, 79, 129);
+    min-width: 300px;
+    min-height: 100px;
+}
+
+.blockdiv{
+    display:none
+}
