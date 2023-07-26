@@ -4,15 +4,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>    <h2>Do you want to block websites?</h2>    <input type="checkbox" id="myCheckbox"></div>
-
-
+    <div id="timerDiv" class="timerDiv">
+        <h2>Enter Timer (in minutes)</h2>
+        <input type="number" id="timerInput" min="1" max="120" step="1" placeholder="Enter time in minutes">
+    </div>
+   
+    <div id="message">    <h2>Do you want to block websites?</h2>    <input type="checkbox" id="myCheckbox"></div>
+    
     <div id="blockdiv" class="blockdiv">
         <h2>Blocked Websites</h2>
-        <textarea id="blockedWebsites" placeholder="Enter URLs separated by commas or line breaks"></textarea>
+        <textarea id="blockedWebsites" placeholder="Enter URLs with line breaks"></textarea>
     </div>
+    
     <button id="startButton">Start</button>
-    <button id="stopButton">Stop</button>
+    <button id="stopButton"  style="display: none;">Stop</button>
     <script src="script.js"></script>
 </body>
 </html>
