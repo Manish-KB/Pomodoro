@@ -6,11 +6,11 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     startTimer(message.timerDuration);
     startBlocking(message.blockedWebsites);
     isBlocking = true
-    showNotification("Blocking websites has started!");
+    showNotification("Timer Started","Blocking websites!");
   }
   else if (message.action === "stopBlocking") {
     isBlocking = false
-    showNotification("Blocking websites has stopped!");
+    showNotification("Break Time!","Website blocking has stopped!");
     stopBlocking();
   }
 
@@ -19,8 +19,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 
 function startBlocking(blockedWebsites) {
-
-  // if (isBlocking)
   {
     blockingListener = chrome.webRequest.onBeforeRequest.addListener(
       function (details) {
@@ -48,7 +46,7 @@ function stopBlocking() {
   setTimeout(function () {
     chrome.runtime.reload();
   }, 500);
-  // chrome.runtime.reload()
+
   if (blockingListener) {
 
     chrome.webRequest.onBeforeRequest.removeListener(blockingListener);
@@ -58,7 +56,6 @@ function stopBlocking() {
 }
 
 
-////////////////
 let startTime = null;
 let duration = 0;
 function startTimer(timerDuration) {
@@ -81,25 +78,24 @@ function stopTimer() {
   let currentTime = new Date();
   let elapsedTime = Math.round((currentTime - startTime) / 1000); // Convert to seconds
   console.log("Elapsed time: " + elapsedTime + " seconds");
-  showNotification("Blocking websites has stopped!");
+  showNotification("Break Time!","Well Done!");
   stopBlocking();
+
+  let percentage = (elapsedTime / (duration / 60)) * 100;
+  percentage = Math.min(percentage, 100);
+  updateProgressBar(percentage);
 
 }
 
-//////////////////////
-
-
-function showNotification(message) {
+function showNotification(title,message) {
   chrome.notifications.create({
     type: "basic",
-    iconUrl: "icon.png",
-    title: "Notification Title",
+    iconUrl: "logo.png",
+    title: title,
     message: message,
   });
 
 }
-
-
 
 
 

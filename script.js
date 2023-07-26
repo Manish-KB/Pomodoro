@@ -1,23 +1,11 @@
-const myCheckbox = document.getElementById("myCheckbox");
 const blockdiv = document.getElementById("blockdiv");
 const startButton = document.getElementById("startButton");
 const stopButton = document.getElementById("stopButton");
-const displayMessage = document.querySelector("#message h2");
+const displayMessage = document.querySelector("#message p");
 const timerInput = document.getElementById("timerInput");
 const timerdiv=document.getElementById("timerDiv");
 let timerInterval;
-
-
-myCheckbox.addEventListener("click", function () {
-  console.log("Checked");
-  if (myCheckbox.checked) {
-    blockdiv.style.display = "block";
-  } else {
-    blockdiv.style.display = "none";
-  }
-});
-
-
+const textbox=document.getElementById('blockedWebsites')
 
 
 
@@ -40,7 +28,6 @@ startButton.addEventListener("click", function () {
 }
 )
 stopButton.addEventListener("click", function () {
-  // chrome.runtime.reload()
   console.log("Stop");
   chrome.runtime.sendMessage({ action: "stopBlocking" });
   chrome.storage.local.set({ isBlocked: false });
@@ -55,15 +42,15 @@ chrome.storage.local.get(["isBlocked"], function (data) {
   if (data.isBlocked === false) {
     startButton.style.display = "block";
     stopButton.style.display = "none";
-    myCheckbox.style.display = "block";
+
     timerdiv.style.display="block";
-    displayMessage.textContent = "Do you want to block websites";
+    displayMessage.textContent = "Enter websites to be blocked";
+    textbox.style.display="block";
   } else {
     startButton.style.display = "none";
     stopButton.style.display = "block";
-    myCheckbox.style.display = "none";
     displayMessage.textContent = "Work Time" ;
-
+    textbox.style.display="none";
     timerdiv.style.display="none";
   }
 });

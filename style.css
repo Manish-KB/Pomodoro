@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
-    background-color: rgb(255, 79, 129);
-    min-width: 300px;
-    min-height: 100px;
+    background-color: rgb(41, 41, 41);
+    min-width: 250px;
+    min-height: 350px;
+    font-family: 'Roboto', sans-serif;
+    padding:1rem;
+    color: white;
 }
 
-.blockdiv{
-    display:none
+.form-outline{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
+
+/* .blockdiv{
+    display:none
+} */

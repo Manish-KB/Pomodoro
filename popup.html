@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="timerDiv" class="timerDiv">
-        <h2>Enter Timer (in minutes)</h2>
-        <input type="number" id="timerInput" min="1" max="120" step="1" placeholder="Enter time in minutes">
+        <p>Enter Timer value(minutes)</p>
+        <div class="input-group mb-3">
+            <input type="number" id="timerInput" min="1" max="120" step="1" placeholder="Enter time in minutes"
+                class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
     </div>
-   
-    <div id="message">    <h2>Do you want to block websites?</h2>    <input type="checkbox" id="myCheckbox"></div>
-    
-    <div id="blockdiv" class="blockdiv">
-        <h2>Blocked Websites</h2>
-        <textarea id="blockedWebsites" placeholder="Enter URLs with line breaks"></textarea>
+    <br>
+    <div id="message">
+        <p>Enter Websites to be blocked</p>
+        <div class="form-outline">
+            <textarea class="form-control  " id="blockedWebsites" rows="4"
+                placeholder="Enter URLs with line breaks"></textarea>
+
+        </div>
+
     </div>
-    
-    <button id="startButton">Start</button>
-    <button id="stopButton"  style="display: none;">Stop</button>
+    <br>
+    <div class="center-buttons">
+        <button id="startButton" class="btn btn-success">Start</button>
+
+        <button id="stopButton" class="btn btn-warning" style="display: none;">Stop</button>
+    </div>
+
     <script src="script.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

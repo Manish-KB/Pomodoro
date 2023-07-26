@@ -18,7 +18,11 @@
 "browser_action": {
   "default_popup": "popup.html"
 },
-"web_accessible_resources": ["blocked.html"]
-
+"web_accessible_resources": ["blocked.html"],
+"icons": {
+  "16": "logo.png",
+  "48": "logo.png",
+  "128": "logo.png"
+}
 }
 
